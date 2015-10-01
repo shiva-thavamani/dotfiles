@@ -1,4 +1,1 @@
-syntax on
-
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+/Users/chris/.spf13-vim-3/.vimrc

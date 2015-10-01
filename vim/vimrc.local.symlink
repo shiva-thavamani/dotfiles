@@ -1,0 +1,33 @@
+set shiftwidth=2                " Use indents of 4 spaces
+set tabstop=2                   " An indentation every four columns
+set softtabstop=2               " Let backspace delete indent
+
+let g:spf13_bundle_groups=['general', 'programming', 'ruby', 'javascript', 'html', 'misc', 'youcompleteme']
+let g:EclimCompletionMethod = 'omnifunc'
+let g:spf13_use_powerline = 1
+let g:spf13_use_old_powerline = 1
+let g:spf13_no_views = 1
+set nu
+set norelativenumber
+set nocursorline
+
+let NERDTreeChDirMode=2
+
+""UnBundle 'spf13/vim-autoclose'
+""UnBundle 'justinmk/vim-sneak'
+""UnBundle 'Shougo/neocomplcache'
+""UnBundle 'Shougo/neosnippet'
+""UnBundle 'honza/vim-snippets'
+""UnBundle 'Shougo/neocomplete.vim.git'
+""UnBundle 'Shougo/neosnippet'
+""UnBundle 'honza/vim-snippets'
+""UnBundle 'spf13/PIV'
+""UnBundle 'numbers.vim'
+""UnBundle 'bling/vim-airline'
+""UnBundle 'bling/vim-bufferline'
+""UnBundle 'bling/vim-easymotion'
+""UnBundle 'vim-scripts/restore_view.vim'
+""
+""Bundle 'Valloric/YouCompleteMe'
+""Bundle 'SirVer/ultisnips'
+
