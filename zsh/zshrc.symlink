@@ -1,5 +1,62 @@
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+export DOTFILES=$HOME/.dotfiles
+
+# Path to your oh-my-zsh configuration.
+export ZSH=$HOME/.oh-my-zsh
+export COMMAND_MODE=unix2003
+
+#export PERIOD=300 ## Execute "periodic" function every $PERIOD seconds.  One of the ZSH hook functions (http://zsh.sourceforge.net/Doc/Release/Functions.html)
+
+# Set to the name theme to load.
+# Look in ~/.oh-my-zsh/themes/
+export ZSH_THEME="eastwood"
+
+# Set to this to use case-sensitive completion
+# export CASE_SENSITIVE="true"
+
+# Comment this out to disable weekly auto-update checks
+# export DISABLE_AUTO_UPDATE="true"
+
+# Uncomment following line if you want to disable colors in ls
+# export DISABLE_LS_COLORS="true"
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(
+  autojump
+  brew
+  cap
+  cloudapp
+  encode64
+  gem
+  git
+  git-flow
+  github
+  osx
+  rails
+  ruby
+  rvm
+  screen
+  ssh-agent
+  svn
+)
+
+export AUTOJUMP_KEEP_SYMLINKS=1
+source $ZSH/oh-my-zsh.sh
+
+##  For SSH-Agent forwarding
+#zstyle :omz:plugins:ssh-agent agent-forwarding on
+zstyle :omz:plugins:ssh-agent id_rsa
+export SSH_AGENT_SOCK=$SSH_AUTH_SOCK
+
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+
+export EDITOR='vim -f'
+
+setopt autopushd
+
+alias cm="curl -s http://whatthecommit.com/ | grep '<p>' | sed -e 's/<p>//'"
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -11,28 +68,28 @@ fi
 
 # all of our zsh files
 typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+config_files=($DOTFILES/**/*.zsh)
 
 # load the path files
-for file in ${(M)config_files:#*/path.zsh}
+for file in ${(M)config_files:#*/*.zsh}
 do
   source $file
 done
 
-# load everything but the path and completion files
-for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-do
-  source $file
-done
+## load everything but the path and completion files
+#for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+#do
+#  source $file
+#done
 
-# initialize autocomplete here, otherwise functions won't be loaded
-autoload -U compinit
-compinit
-
-# load every completion after autocomplete loads
-for file in ${(M)config_files:#*/completion.zsh}
-do
-  source $file
-done
+## initialize autocomplete here, otherwise functions won't be loaded
+#autoload -U compinit
+#compinit
+#
+## load every completion after autocomplete loads
+#for file in ${(M)config_files:#*/completion.zsh}
+#do
+#  source $file
+#done
 
 unset config_files
