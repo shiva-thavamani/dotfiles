@@ -23,22 +23,27 @@ export ZSH_THEME="eastwood"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
+  aws
   autojump
   brew
-  cap
+  bundler
   cloudapp
+  common-aliases
+  dircycle
+  dirhistory
+  jsontools
   encode64
   gem
   git
-  git-flow
-  github
   osx
   rails
-  ruby
-  rvm
   screen
   ssh-agent
-  svn
+  sublime
+  sudo
+  #tmux
+  urltools
+  web-search
 )
 
 export AUTOJUMP_KEEP_SYMLINKS=1
@@ -93,3 +98,16 @@ done
 #done
 
 unset config_files
+
+# Select directory and open a ZSH tab completer
+# http://zsh.sourceforge.net/Guide/zshguide06.html#l149
+# http://www.refining-linux.org/archives/40/ZSH-Gem-5-Menu-selection/
+# http://www.cs.elte.hu/zsh-manual/zsh_14.html#SEC52
+#
+# - space: advance to the directory and open it for the completion
+# - backspace: undo the selection
+
+#zmodload zsh/complist
+#bindkey -M menuselect ' ' accept-and-infer-next-history
+#bindkey -M menuselect '^?' undo
+
