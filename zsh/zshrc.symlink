@@ -29,8 +29,8 @@ plugins=(
   bundler
   cloudapp
   common-aliases
-  dircycle
-  dirhistory
+  #dircycle
+  #dirhistory
   jsontools
   encode64
   gem
