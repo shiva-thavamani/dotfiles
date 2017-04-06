@@ -3,3 +3,8 @@
 *~
 .*.swp
 doc/tags
+.byebug-history
+*.mine
+.powenv
+.byebug_history
+.rubocop.yml

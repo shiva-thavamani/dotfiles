@@ -111,3 +111,12 @@ unset config_files
 #bindkey -M menuselect ' ' accept-and-infer-next-history
 #bindkey -M menuselect '^?' undo
 
+function guardon {
+  cp -f Gemfile Gemfile.guardon && cp -f Gemfile.mine Gemfile && bundle && bundle exec guard
+}
+
+function guardoff {
+  cp -f Gemfile Gemfile.mine && mv -f Gemfile.guardon Gemfile
+}
+
+stty icrnl
