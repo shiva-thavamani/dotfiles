@@ -1,0 +1,70 @@
+"enrollment-service":
+  title: "enrollment-service"
+  paths: [
+    "/Users/chris/Source/DBC/tech/enrollment-service"
+  ]
+backoffice:
+  title: "backoffice"
+  paths: [
+    "/Users/chris/Source/DBC/tech/backoffice"
+  ]
+"program-cohort-location-service":
+  title: "program-cohort-location-service"
+  paths: [
+    "/Users/chris/Source/DBC/tech/program-cohort-location-service"
+  ]
+apply:
+  title: "apply"
+  paths: [
+    "/Users/chris/Source/DBC/tech/apply"
+  ]
+"student-metrics-service":
+  title: "student-metrics-service"
+  paths: [
+    "/Users/chris/Source/DBC/tech/student-metrics-service"
+  ]
+integrations:
+  title: "integrations"
+  paths: [
+    "/Users/chris/Source/DBC/tech/integrations"
+  ]
+newspresso:
+  title: "newspresso"
+  paths: [
+    "/Users/chris/Source/EWN/newspresso"
+  ]
+talks:
+  title: "talks"
+  paths: [
+    "/Users/chris/Source/DBC/tech/talks"
+  ]
+"webhooks-server":
+  title: "webhooks-server"
+  paths: [
+    "/Users/chris/Source/DBC/tech/webhooks-server"
+  ]
+identity:
+  title: "identity"
+  paths: [
+    "/Users/chris/Source/DBC/tech/identity"
+  ]
+"backoffice-simple-setup":
+  title: "backoffice-simple-setup"
+  paths: [
+    "/Users/chris/Source/DBC/tech/backoffice-simple-setup"
+  ]
+"careers-service":
+  title: "careers-service"
+  paths: [
+    "/Users/chris/Source/DBC/tech/careers-service"
+  ]
+"p0-apply":
+  title: "p0-apply"
+  paths: [
+    "/Users/chris/Source/DBC/tech/p0-apply"
+  ]
+"rubydoc.info":
+  title: "rubydoc.info"
+  paths: [
+    "/Users/chris/Source/DBC/tech/rubydoc.info"
+  ]

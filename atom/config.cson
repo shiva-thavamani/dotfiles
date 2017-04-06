@@ -1,0 +1,58 @@
+"*":
+  "atom-beautify":
+    general:
+      _analyticsUserId: "ddd70e10-aedd-495d-abbf-b2d21b5b69c4"
+    ruby:
+      beautify_on_save: true
+      indent_size: 2
+      rubocop_path: "/Users/chris/.gem/ruby/2.3.1/bin/rubocop"
+  autosave:
+    enabled: true
+  core:
+    disabledPackages: [
+      "rspec"
+    ]
+    telemetryConsent: "limited"
+    themes: [
+      "atom-dark-ui"
+      "atom-dark-syntax"
+    ]
+  editor:
+    fontFamily: "Anonymous Pro"
+    fontSize: 18
+    preferredLineLength: 100
+    showIndentGuide: true
+    showInvisibles: true
+  "exception-reporting":
+    userId: "4f4d4f38-6fe1-ae79-2cc5-4aa683a5c36f"
+  "fuzzy-finder": {}
+  linter:
+    errorPanelHeight: 79
+  "linter-rubocop": {}
+  "project-plus":
+    projectHome: " ~/Source/DBC/tech"
+    showPath: true
+  "rubocop-auto-correct":
+    autoRun: true
+    correctFile: true
+    debugMode: true
+  "ruby-test":
+    rspecAllCommand: "bundle exec rspec --tty spec"
+    rspecFileCommand: "bundle exec rspec --tty {relative_path}"
+    specFramework: "rspec"
+  "split-diff":
+    diffWords: true
+    ignoreWhitespace: true
+    leftEditorColor: "red"
+    rightEditorColor: "green"
+    syncHorizontalScroll: true
+  "tree-view":
+    alwaysOpenExisting: true
+    autoReveal: true
+    hideVcsIgnoredFiles: false
+    squashDirectoryNames: true
+  "vim-mode-plus":
+    useClipboardAsDefaultRegister: true
+    wrapLeftRightMotion: true
+  welcome:
+    showOnStartup: false
