@@ -19,3 +19,5 @@ alias gf='git-flow'
 alias rakedb='be rake db:drop; be rake db:create; be rake db:migrate; be rake db:seed'
 alias be='bundle exec'
 
+alias gs='gulp spec'
+alias gsc='gulp spec_w_coverage'

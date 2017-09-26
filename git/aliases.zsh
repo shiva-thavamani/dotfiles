@@ -27,3 +27,6 @@ gps() {
 gpp() {
   git push origin `git rev-parse --abbrev-ref HEAD`:production
 }
+
+alias gitcleanshow='git branch --merged master | grep -v "master"'
+alias gitclean='gitcleanshow | xargs -n 1 git branch -d'
