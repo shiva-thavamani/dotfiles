@@ -1,13 +1,8 @@
 alias reload!='. ~/.zshrc'
 
 
-BASE="$HOME/Documents"
-SOURCE="$BASE/Source"
-hash -d gitrepos="$BASE/Source/git"
-hash -d ewn="/Users/chris/Source/EWN/newspresso/"
-hash -d dbc="/Users/chris/Source/DBC/"
-hash -d cic="/Users/chris/Source/DBC/Cohorts/2015/NYC/cicadas/"
-hash -d in="/Users/chris/Inbox/"
+BASE="$HOME"
+SOURCE="$BASE/source"
 
 alias unpushed='git log --branches --not --remotes'
 alias unpushed_summary='git log --branches --not --remotes --simplify-by-decoration --decorate --oneline'
@@ -21,3 +16,13 @@ alias be='bundle exec'
 
 alias gs='gulp spec'
 alias gsc='gulp spec_w_coverage'
+
+alias speedtest='curl -o /dev/null http://speedtest.wdc01.softlayer.com/downloads/test1000.zip'
+
+alias python2='/usr/local/bin/python'
+alias pip2='/usr/local/bin/pip'
+alias python='/usr/local/bin/python3'
+alias pip='/usr/local/bin/pip3'
+
+
+alias git-morning='goodmorning'

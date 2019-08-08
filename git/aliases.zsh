@@ -18,7 +18,9 @@ alias gca='git commit -a'
 alias gco='git checkout'
 alias gcb='git copy-branch-name'
 alias gb='git branch'
-alias gs='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
+alias gsb='git status -sb' # upgrade your git if -sb breaks for you. it's fun.
+alias grim='git rebase -i master'
+alias gric='git rebase --continue'
 
 gps() {
   git push origin `git rev-parse --abbrev-ref HEAD`:staging
@@ -26,6 +28,21 @@ gps() {
 
 gpp() {
   git push origin `git rev-parse --abbrev-ref HEAD`:production
+}
+
+fbr() {
+  git fetch
+  local branches branch
+  branches=$(git branch -a) &&
+  branch=$(echo "$branches" | fzf +s +m -e) &&
+  git checkout $(echo "$branch" | sed "s:.* remotes/origin/::" | sed "s:.* ::")
+}
+
+fbl() {
+  git fetch
+  local branches branch
+  branches=$(git branch -a) &&
+  echo "$branches" | fzf +s +m -e
 }
 
 alias gitcleanshow='git branch --merged master | grep -v "master"'

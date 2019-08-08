@@ -9,7 +9,9 @@ export COMMAND_MODE=unix2003
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="eastwood"
+#export ZSH_THEME="spaceship"
+#export ZSH_THEME="eastwood"
+export ZSH_THEME="agnoster"
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -56,6 +58,7 @@ export SSH_AGENT_SOCK=$SSH_AUTH_SOCK
 
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
+#bindkey "^?" backward-kill-word
 
 export EDITOR='vim -f'
 
@@ -120,3 +123,8 @@ function guardoff {
 }
 
 stty icrnl
+export PATH="/usr/local/mysql/bin:$PATH"
+
+  # Set Spaceship ZSH as a prompt
+  autoload -U promptinit; promptinit
+  prompt spaceship

@@ -1,0 +1,7 @@
+#!/bin/zsh
+
+cameras=("${(@f)$(lolcommits --devices | grep '^*' | grep -v 'Snap Camera' | cut -c3-)}")
+count=${#cameras}
+((  index=$(($RANDOM % $count)) + 1 ))
+echo ${cameras[$index]}
+

@@ -8,3 +8,13 @@ doc/tags
 .powenv
 .byebug_history
 .rubocop.yml
+
+bin/rubocop
+bin/debride
+bin/reek
+bin/ruby-lint
+bin/fasterer
+setup_dev_slack.sh
+webpack_dev_server_with_ngrok.sh
+.solargraph.yml
+.vscode
