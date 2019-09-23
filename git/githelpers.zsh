@@ -102,7 +102,7 @@ goodmorning() {
   # clear
 
   CUR_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-  if [[ "$CUR_BRANCH" == "master" ]]; then
+  if [[ "$CUR_BRANCH" = "master" ]]; then
     goodmorning_echo_green "Updating master..."
   else
     goodmorning_echo_green "Switching to master and updating..."
