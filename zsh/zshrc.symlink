@@ -9,9 +9,15 @@ export COMMAND_MODE=unix2003
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
+#export ZSH_THEME="jonathan"
 #export ZSH_THEME="spaceship"
 #export ZSH_THEME="eastwood"
-export ZSH_THEME="agnoster"
+#export ZSH_THEME="agnoster"
+
+# 4/23/2019
+# export ZSH_THEME="kphoen"
+
+export ZSH_THEME=powerlevel10k/powerlevel10k
 
 # Set to this to use case-sensitive completion
 # export CASE_SENSITIVE="true"
@@ -41,8 +47,8 @@ plugins=(
   rails
   screen
   ssh-agent
-  sublime
-  sudo
+  #sublime
+  #sudo
   #tmux
   urltools
   web-search
@@ -125,6 +131,69 @@ function guardoff {
 stty icrnl
 export PATH="/usr/local/mysql/bin:$PATH"
 
-  # Set Spaceship ZSH as a prompt
-  autoload -U promptinit; promptinit
-  prompt spaceship
+export LOLCOMMITS_CAPTURE_DISABLED=false
+export LOLCOMMITS_ANIMATE=false
+#export LOLCOMMITS_DEVICE="HD Pro Webcam C920"
+##export LOLCOMMITS_DEVICE="FaceTime HD Camera"
+export LOLCOMMITS_FORK=false
+export LOLCOMMITS_DELAY=1
+
+open_team_prs() {
+  open_pull_requests \
+    --token 653f7282c498aa85de9fae52fa90272d4bafb929 \
+    --repo usertesting/orders \
+    --author cdimartino \
+    --author nevinera \
+    --exclude_label WIP \
+    --required_approvals 2 \
+    --exclude_already_approved \
+    --format url \
+    | xargs -I {} open -a 'Google Chrome' {}
+}
+
+export UT_TEAM=tp
+card_branch_name() {
+    if [ ! -n "${UT_TEAM}" ]; then
+        echo "\$UT_TEAM not set!" && return 1;
+    fi
+
+    project=$1
+    url=$2
+
+    if [[ $url = '' ]]; then
+        url=$project
+        project=''
+    fi
+
+    if [[ $project != '' ]]; then
+        project="--${project}"
+    fi
+
+    cardid=`echo $url | cut -d/ -f5`;
+    description=`echo $url | cut -d/ -f6 | sed -e 's/-$//g' | sed -E 's/^[[:digit:]-]+//g'`;
+    echo "${UT_TEAM}${project}--${cardid}--${description}";
+}
+
+card_branch () {
+    git checkout -b `card_branch_name $1 $2` master
+}
+
+open_branch () {
+    git checkout `card_branch_name $1 $2`
+}
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+alias rebcon='git rebase --continue'
+alias mergcon='git merge --continue'
+
+# heroku autocomplete setup
+HEROKU_AC_ZSH_SETUP_PATH=/Users/cdimartino/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+
+alias respec="rerun -cx rspec"
+alias resspec="rerun -cx spring rspec"
+source ~/.purepower
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+setopt HIST_IGNORE_ALL_DUPS
