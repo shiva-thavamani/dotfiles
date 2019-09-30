@@ -138,18 +138,18 @@ export LOLCOMMITS_ANIMATE=false
 export LOLCOMMITS_FORK=false
 export LOLCOMMITS_DELAY=1
 
-open_team_prs() {
-  open_pull_requests \
-    --token 653f7282c498aa85de9fae52fa90272d4bafb929 \
-    --repo usertesting/orders \
-    --author cdimartino \
-    --author nevinera \
-    --exclude_label WIP \
-    --required_approvals 2 \
-    --exclude_already_approved \
-    --format url \
-    | xargs -I {} open -a 'Google Chrome' {}
-}
+# open_team_prs() {
+#   open_pull_requests \
+#     --token ******* \
+#     --repo usertesting/orders \
+#     --author cdimartino \
+#     --author nevinera \
+#     --exclude_label WIP \
+#     --required_approvals 2 \
+#     --exclude_already_approved \
+#     --format url \
+#     | xargs -I {} open -a 'Google Chrome' {}
+# }
 
 export UT_TEAM=tp
 card_branch_name() {
