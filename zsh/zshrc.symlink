@@ -151,27 +151,20 @@ export LOLCOMMITS_DELAY=1
 #     | xargs -I {} open -a 'Google Chrome' {}
 # }
 
-export UT_TEAM=tp
+export UT_TEAM=PANELPRO
 card_branch_name() {
     if [ ! -n "${UT_TEAM}" ]; then
         echo "\$UT_TEAM not set!" && return 1;
     fi
 
-    project=$1
-    url=$2
-
-    if [[ $url = '' ]]; then
-        url=$project
-        project=''
+    url=$1
+    description=$2
+    if [ -n "${description}" ]; then
+      description="--${description}"
     fi
 
-    if [[ $project != '' ]]; then
-        project="--${project}"
-    fi
-
-    cardid=`echo $url | cut -d/ -f5`;
-    description=`echo $url | cut -d/ -f6 | sed -e 's/-$//g' | sed -E 's/^[[:digit:]-]+//g'`;
-    echo "${UT_TEAM}${project}--${cardid}--${description}";
+    cardid=`echo $url | sed -E "s/.+(${UT_TEAM}-.+)/\1/"`;
+    echo "${cardid}${description}";
 }
 
 card_branch () {
@@ -197,3 +190,11 @@ source ~/.purepower
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 setopt HIST_IGNORE_ALL_DUPS
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+export NODE_OPTIONS="--max-old-space-size=4096"
+
+export GITHUB_PR_ACCESS_TOKEN=a5751864fc95ffe8d51551cf937a6c61bce3627e
