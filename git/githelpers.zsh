@@ -138,7 +138,7 @@ goodmorning() {
   RAKE_CMD="rake"
 
   goodmorning_echo_green "Running $RAKE_CMD db:migrate..."
-  `spring rake db:migrate db:test:prepare` || goodmorning_echo_yellow "Failed to ready the database!"
+  `#{RAKE_CMD} db:migrate db:test:prepare` || goodmorning_echo_yellow "Failed to ready the database!"
 
   # Avoid noise generated from running migration on master:
   if [ -f db/structure.sql ]; then
@@ -155,3 +155,35 @@ goodmorning() {
   return 0
 }
 # *********************************** / git goodmorning ***********************************
+
+export UT_TEAM=tp
+card_branch_name() {
+    if [ ! -n "${UT_TEAM}" ]; then
+        echo "\$UT_TEAM not set!" && return 1;
+    fi
+
+    project=$1
+    url=$2
+
+    if [[ $url = '' ]]; then
+        url=$project
+        project=''
+    fi
+
+    if [[ $project != '' ]]; then
+        project="--${project}"
+    fi
+
+    cardid=`echo $url | cut -d/ -f5`;
+    description=`echo $url | cut -d/ -f6 | sed -e 's/-$//g' | sed -E 's/^[[:digit:]-]+//g'`;
+    echo "${UT_TEAM}${project}--${cardid}--${description}";
+}
+
+card_branch () {
+    git checkout -b `card_branch_name $1 $2` master
+}
+
+open_branch () {
+    git checkout `card_branch_name $1 $2`
+}
+

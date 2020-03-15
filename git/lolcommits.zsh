@@ -1,0 +1,7 @@
+export LOLCOMMITS_CAPTURE_DISABLED=false
+export LOLCOMMITS_ANIMATE=false
+#export LOLCOMMITS_DEVICE="HD Pro Webcam C920"
+##export LOLCOMMITS_DEVICE="FaceTime HD Camera"
+export LOLCOMMITS_FORK=false
+export LOLCOMMITS_DELAY=1
+
