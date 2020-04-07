@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # shortcut to this dotfiles path is $ZSH
 export DOTFILES=$HOME/.dotfiles
 
@@ -37,8 +44,6 @@ plugins=(
   bundler
   cloudapp
   common-aliases
-  #dircycle
-  #dirhistory
   jsontools
   encode64
   gem
@@ -47,9 +52,6 @@ plugins=(
   rails
   screen
   ssh-agent
-  #sublime
-  #sudo
-  #tmux
   urltools
   web-search
 )
@@ -61,10 +63,6 @@ source $ZSH/oh-my-zsh.sh
 #zstyle :omz:plugins:ssh-agent agent-forwarding on
 zstyle :omz:plugins:ssh-agent id_rsa
 export SSH_AGENT_SOCK=$SSH_AUTH_SOCK
-
-bindkey "^[[1;5C" forward-word
-bindkey "^[[1;5D" backward-word
-#bindkey "^?" backward-kill-word
 
 export EDITOR='vim -f'
 
@@ -108,88 +106,18 @@ done
 
 unset config_files
 
-# Select directory and open a ZSH tab completer
-# http://zsh.sourceforge.net/Guide/zshguide06.html#l149
-# http://www.refining-linux.org/archives/40/ZSH-Gem-5-Menu-selection/
-# http://www.cs.elte.hu/zsh-manual/zsh_14.html#SEC52
-#
-# - space: advance to the directory and open it for the completion
-# - backspace: undo the selection
-
-#zmodload zsh/complist
-#bindkey -M menuselect ' ' accept-and-infer-next-history
-#bindkey -M menuselect '^?' undo
-
-function guardon {
-  cp -f Gemfile Gemfile.guardon && cp -f Gemfile.mine Gemfile && bundle && bundle exec guard
-}
-
-function guardoff {
-  cp -f Gemfile Gemfile.mine && mv -f Gemfile.guardon Gemfile
-}
-
-stty icrnl
-export PATH="/usr/local/mysql/bin:$PATH"
-
-export LOLCOMMITS_CAPTURE_DISABLED=false
-export LOLCOMMITS_ANIMATE=false
-#export LOLCOMMITS_DEVICE="HD Pro Webcam C920"
-##export LOLCOMMITS_DEVICE="FaceTime HD Camera"
-export LOLCOMMITS_FORK=false
-export LOLCOMMITS_DELAY=1
-
-# open_team_prs() {
-#   open_pull_requests \
-#     --token ******* \
-#     --repo usertesting/orders \
-#     --author cdimartino \
-#     --author nevinera \
-#     --exclude_label WIP \
-#     --required_approvals 2 \
-#     --exclude_already_approved \
-#     --format url \
-#     | xargs -I {} open -a 'Google Chrome' {}
-# }
-
-export UT_TEAM=PANELPRO
-card_branch_name() {
-    if [ ! -n "${UT_TEAM}" ]; then
-        echo "\$UT_TEAM not set!" && return 1;
-    fi
-
-    url=$1
-    description=$2
-    if [ -n "${description}" ]; then
-      description="--${description}"
-    fi
-
-    cardid=`echo $url | sed -E "s/.+(${UT_TEAM}-.+)/\1/"`;
-    echo "${cardid}${description}";
-}
-
-card_branch () {
-    git checkout -b `card_branch_name $1 $2` master
-}
-
-open_branch () {
-    git checkout `card_branch_name $1 $2`
-}
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
-
-alias rebcon='git rebase --continue'
-alias mergcon='git merge --continue'
-
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/cdimartino/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 alias respec="rerun -cx rspec"
 alias resspec="rerun -cx spring rspec"
-source ~/.purepower
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 setopt HIST_IGNORE_ALL_DUPS
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
