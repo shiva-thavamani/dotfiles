@@ -195,6 +195,9 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
-export NODE_OPTIONS="--max-old-space-size=4096"
+source ~/.credentials.zsh
 
-export GITHUB_PR_ACCESS_TOKEN=a5751864fc95ffe8d51551cf937a6c61bce3627e
+export GOPATH="$HOME/go"
+export PATH=$PATH:$GOPATH/bin
+
+export NODE_OPTIONS="--max_old_space_size=4096"
