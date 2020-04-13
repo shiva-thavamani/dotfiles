@@ -45,3 +45,4 @@ fbl() {
 
 alias gitcleanshow='git branch --merged master | grep -v "master"'
 alias gitclean='gitcleanshow | xargs -n 1 git branch -d'
+alias fix='git commit --fixup'
