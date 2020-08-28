@@ -11,4 +11,9 @@ export PATH="/usr/local/Cellar/bin":$PATH;
 ### For US!! ###
 export PATH=$PATH:~/.dotfiles/bin
 
-export PATH="/usr/local/opt/node@10/bin:$PATH"
+## For CoreUtils
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+
+

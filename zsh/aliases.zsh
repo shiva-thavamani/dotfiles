@@ -26,3 +26,4 @@ alias pip='/usr/local/bin/pip3'
 
 
 alias git-morning='goodmorning'
+alias changed-specs='git status | grep spec | grep -v deleted | cut -d: -f2 | sed -e "s/ //g"'

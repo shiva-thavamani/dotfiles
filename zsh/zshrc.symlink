@@ -54,6 +54,7 @@ plugins=(
   ssh-agent
   urltools
   web-search
+  git-extra-commands
 )
 
 export AUTOJUMP_KEEP_SYMLINKS=1
@@ -119,13 +120,16 @@ setopt HIST_IGNORE_ALL_DUPS
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 source ~/.credentials.zsh
 
-export GOPATH="$HOME/go"
-export PATH=$PATH:$GOPATH/bin
+source ~/.purepower
+
+silence_ruby() {
+    export RUBYOPT='-W:no-deprecated -W:no-experimental'
+}
+
+unsilence_ruby() {
+    unset RUBYOPT
+}
 
 export NODE_OPTIONS="--max_old_space_size=4096"
