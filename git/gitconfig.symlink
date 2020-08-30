@@ -1,0 +1,80 @@
+# Sample gitconfig
+#
+
+[hub]
+        protocol = https
+[user]
+	name = Chris DiMartino
+	email = cdimartino@usertesting.com
+	signingKey = 2025D3259691BF3BB8FEC0563B4781685FF1B178
+[credential]
+        helper = osxkeychain
+[alias]
+    lol = ! LOLCOMMITS_CAPTURE_DISABLED=false git commit
+        pf = push --force-with-lease
+        pu = pull
+        ci = commit
+        co = checkout
+        promote = !$ZSH/bin/git-promote
+        wtf     = !$ZSH/bin/git-wtf
+        rank-contributors = !$ZSH/bin/git-rank-contributors
+        count   = !git shortlog -sn
+    find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n | tail -1 | cut -f2'"
+    show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
+    morning     = "! git-morning"
+    show-assume-unchanged = "!git ls-files -v | grep '^h'"
+    #morning    = "!git checkout master; git pull --prune; bundle install && yarn install --pure-lockfile --check-files && yarn postinstall && bundle exec rake db:migrate db:test:prepare && git checkout db/structure.sql && git checkout -"
+    #show-merged = "!git branch --merged | grep -v '(master|qa-integrations-team)'"
+    #prune-merged = "sh -c 'git branch --merged | grep -v \"(^master|qa-integrations-team)\"'"
+    #git branch --merged | egrep -v "(^\*|master|qa-integrations-team)" | xargs git branch -d
+	st = status
+	recent = "for-each-ref --count=10 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\""
+	ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
+	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
+    pr = "!sh -c 'base=$0 && git log $base..HEAD --pretty=tformat:\"- %h %s\" | tail -r | pbcopy'"
+    prm = "!sh -c 'git log master..HEAD --pretty=tformat:\"- %h %s\" | tail -r | pbcopy'"
+    wip = "!sh -c 'git add .; git commit -m WIP'"
+    unwip = "reset HEAD~"
+    rbm = "rebase -i master"
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = true
+[core]
+        excludesfile = ~/.gitignore
+        editor = vim
+[apply]
+        whitespace = nowarn
+[help]
+        autocorrect = 1
+[push]
+        # See `git help config` (search for push.default)
+        # for more information on different options of the below setting.
+        #
+        # Setting to git 2.0 default to suppress warning message
+	default = current
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+[merge]
+	tool = Kaleidoscope
+    keepBackup = false
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[mergetool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
+[commit]
+	gpgsign = true
+	verbose = true
+[rebase]
+	autoSquash = true
+[pull]
+	default = current
+[branch]
+	autoSetupMerge = always
