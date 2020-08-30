@@ -12,18 +12,6 @@ export DOTFILES=$HOME/.dotfiles
 export ZSH=$HOME/.oh-my-zsh
 export COMMAND_MODE=unix2003
 
-#export PERIOD=300 ## Execute "periodic" function every $PERIOD seconds.  One of the ZSH hook functions (http://zsh.sourceforge.net/Doc/Release/Functions.html)
-
-# Set to the name theme to load.
-# Look in ~/.oh-my-zsh/themes/
-#export ZSH_THEME="jonathan"
-#export ZSH_THEME="spaceship"
-#export ZSH_THEME="eastwood"
-#export ZSH_THEME="agnoster"
-
-# 4/23/2019
-# export ZSH_THEME="kphoen"
-
 export ZSH_THEME=powerlevel10k/powerlevel10k
 
 # Set to this to use case-sensitive completion
@@ -42,7 +30,6 @@ plugins=(
   autojump
   brew
   bundler
-  cloudapp
   common-aliases
   jsontools
   encode64
