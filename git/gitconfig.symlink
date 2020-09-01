@@ -31,8 +31,8 @@
 	recent = "for-each-ref --count=10 --sort=-committerdate refs/heads/ --format=\"%(refname:short)\""
 	ls = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate
 	ll = log --pretty=format:\"%C(yellow)%h%Cred%d\\\\ %Creset%s%Cblue\\\\ [%cn]\" --decorate --numstat
-    pr = "!sh -c 'base=$0 && git log $base..HEAD --pretty=tformat:\"- %h %s\" | tail -r | pbcopy'"
-    prm = "!sh -c 'git log master..HEAD --pretty=tformat:\"- %h %s\" | tail -r | pbcopy'"
+    pr = "!sh -c 'base=$0 && git log $base..HEAD --pretty=tformat:\"- %h %s\" | tac | pbcopy'"
+    prm = "!sh -c 'git log master..HEAD --pretty=tformat:\"- %h %s\" | tac | pbcopy'"
     wip = "!sh -c 'git add .; git commit -m WIP'"
     unwip = "reset HEAD~"
     rbm = "rebase -i master"
