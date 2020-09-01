@@ -1,4 +1,4 @@
-# holman does dotfiles
+# ~holman~ DiMartino does dotfiles
 
 ## dotfiles
 
