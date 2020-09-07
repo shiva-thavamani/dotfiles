@@ -1,4 +1,4 @@
-# ~holman~ DiMartino does dotfiles
+# ~holman~ ~DiMartino~ Thavamani does dotfiles
 
 ## dotfiles
 
